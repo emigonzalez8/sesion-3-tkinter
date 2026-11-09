@@ -12,4 +12,4 @@ En esta sesión el proyecto consiste en una aplicación de Python con un menú p
 4. **Tabla.** Muestra los datos de [`sample.csv`](data/sample.csv).
 5. **Canvas.** Muestra figuras y texto dibujados con Tkinter.
 
-En la [documentación de la sesión](docs/04_skeleton_5_ventanas_tkinter_equipo.md) están los pasos para abrir y revisar la app, las seis capturas y la propuesta de roles del equipo.
+En la [documentación de la sesión](docs/04_skeleton_5_ventanas_tkinter_equipo.md) están los pasos para abrir y revisar la app, las seis capturas y los roles del equipo.

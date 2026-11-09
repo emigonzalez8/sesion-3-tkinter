@@ -37,8 +37,6 @@ El archivo `.vscode/launch.json` arranca `src.app.main` como módulo con el depu
 
 ## Roles del equipo
 
-Distribución propuesta según el orden de los nombres recibidos. El equipo puede confirmar el reparto antes de entregar.
-
 | Integrante | Ventana | Responsabilidad |
 | --- | --- | --- |
 | Fabio Andrade | 1. Bienvenida | Preparar las etiquetas y el mensaje. Coordinar la integración. |
