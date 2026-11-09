@@ -6,7 +6,7 @@ La ventana principal tiene cinco botones de navegación. Cada botón llama a una
 
 ## Cómo correr el proyecto
 
-1. Abre la carpeta `Sesion3` completa en VS Code. En el explorador deben aparecer `src`, `data`, `.vscode` y `docs`.
+1. Abre la carpeta completa del proyecto en VS Code. Si clonaste el repositorio, la carpeta se llama `sesion-3-tkinter`. En el explorador deben aparecer `src`, `data`, `.vscode` y `docs`.
 2. Usa un Python con Tkinter y las extensiones **Python**, **Pylance** y **Python Debugger**. Para comprobar Tkinter, ejecuta `python3 -m tkinter`. Debe abrirse una ventana de prueba.
 3. Si estás en otra computadora, crea el entorno virtual desde la carpeta del proyecto. En macOS usa `python3 -m venv .venv` y actívalo con `source .venv/bin/activate`. En Windows PowerShell usa `py -m venv .venv` y activa con `.\.venv\Scripts\Activate.ps1`.
 4. En la paleta de comandos, selecciona **Python: Select Interpreter** y elige el intérprete de `.venv`.
@@ -26,6 +26,14 @@ El archivo `.vscode/launch.json` arranca `src.app.main` como módulo con el depu
 | `src/app/win_table.py` | Lee el CSV con `csv.DictReader` y carga sus tres columnas en un `ttk.Treeview`. La ruta del archivo se obtiene a partir de la ubicación del módulo. |
 | `src/app/win_canvas.py` | Dibuja un rectángulo, un óvalo, una línea y un texto sobre un `Canvas`. |
 | `data/sample.csv` | Contiene las columnas `nombre`, `valor1` y `valor2` con tres filas de ejemplo. |
+
+## Qué revisar al abrir la app
+
+1. Desde el menú principal, abre **Bienvenida** y presiona **Mostrar mensaje**.
+2. En **Formulario**, prueba con el nombre vacío o una edad con letras. Después usa un nombre de ejemplo y una edad con números para guardar un archivo `.txt`.
+3. En **Lista**, agrega dos elementos, elimina uno y usa **Limpiar**.
+4. En **Tabla**, revisa que aparezcan las tres filas de `data/sample.csv`. En **Canvas**, revisa que se vean las figuras y el texto.
+5. Usa **Cerrar** para volver al menú y **Salir** para cerrar la aplicación.
 
 ## Roles del equipo
 
