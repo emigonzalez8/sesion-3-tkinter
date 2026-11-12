@@ -33,3 +33,88 @@ Finalmente, en la línea 23 quiero adaptar la línea divisoria y darle más espa
 ## Reflexión
 
 Considero que estos cambios apoyan la idea de Legally, ya que una pantalla de inicio clara ayudará a que el usuario entienda para qué sirve la aplicación y encuentre las opciones con facilidad. También quiero que los colores y los íconos tengan relación con el proyecto, porque eso permitirá reconocer mejor cada función desde el primer momento.
+
+---
+
+## Sesión 7 · API pública, persistencia y gráficas
+
+**Integrante:** Emiliano Gonzalez
+
+**Archivo trabajado:** [`src/app/win_canvas.py`](../src/app/win_canvas.py)
+
+**Fecha:** 12 de noviembre de 2026
+
+En esta sesión agregué una consulta de temperatura a la quinta ventana del proyecto escolar de Tkinter. Ahora, al presionar **Cargar y mostrar gráficas**, el programa obtiene datos de Open-Meteo y los presenta en tres gráficas dentro de la misma ventana. También agregué **Guardar CSV**, para conservar la consulta en un archivo.
+
+### Mi versión
+
+Mi consulta utiliza las últimas **48 horas disponibles de temperatura de León, Guanajuato**, con las coordenadas 21.12 y −101.68. Elegí este rango para comparar dos días y darle una variante propia al ejercicio. Además, utilicé fondo marfil, líneas café y barras doradas, con marcadores distintos para identificar cada gráfica.
+
+Los parámetros principales son `hourly=temperature_2m`, `past_hours=48`, `forecast_hours=0`, `temperature_unit=celsius` y `timezone=America/Mexico_City`. Las fechas se muestran con la hora local de León. Los datos provienen de la API de Open-Meteo; no son mediciones hechas por nosotros ([Open-Meteo, s. f.](https://open-meteo.com/en/docs)).
+
+### Cambios realizados
+
+- Cambié los dibujos de ejemplo por una consulta HTTP con `requests` y lectura de la respuesta JSON.
+- Agregué validación de la respuesta HTTP, las fechas y las temperaturas. Si la consulta falla o tarda más de 15 segundos, aparece un aviso y se puede volver a intentar.
+- La consulta se realiza en un hilo separado, para que la ventana siga respondiendo mientras llegan los datos.
+- Incrusté las tres gráficas con `FigureCanvasTkAgg`, siguiendo el método de integración de [Matplotlib (s. f.)](https://matplotlib.org/stable/gallery/user_interfaces/embedding_in_tk_sgskip.html): **línea**, para ver la evolución; **barras**, para comparar las horas; y **dispersión**, para mostrar cada dato por separado. Todas tienen título, fecha y hora, temperatura en °C y cuadrícula.
+- Coloqué las gráficas una debajo de otra y agregué una barra de desplazamiento para verlas completas. También se puede avanzar con Av Pág y regresar con Re Pág (en Mac, Fn + flecha abajo o arriba).
+- Agregué el periodo consultado y la cantidad de registros. Al recargar, las gráficas anteriores se reemplazan.
+- Agregué **Guardar CSV** y **Volver al menú**. El CSV incluye las columnas `fecha_hora` y `temperatura_c`, y el usuario puede elegir dónde guardarlo.
+- Actualicé el nombre del quinto botón del menú a **5) API y gráficas (Emiliano)** y agregué las dependencias en [`requirements.txt`](../requirements.txt).
+
+### Cómo ejecutar y revisar mi ventana
+
+1. Abrir la carpeta del proyecto en VS Code y seleccionar el intérprete de `.venv`.
+2. Instalar las dependencias desde la terminal del proyecto:
+
+   ```bash
+   python -m pip install -r requirements.txt
+   ```
+
+3. En **Run and Debug**, elegir **Ejecutar main (src.app.main)** y presionar **F5**. Desde una terminal con `.venv` activo también se puede ejecutar:
+
+   ```bash
+   python -m src.app.main
+   ```
+
+4. Entrar en **5) API y gráficas (Emiliano)** y presionar **Cargar y mostrar gráficas**. Esta consulta necesita conexión a internet.
+5. Desplazarse hacia abajo para revisar las tres gráficas. Después, presionar **Guardar CSV** si se quiere conservar la consulta, o **Volver al menú** para regresar.
+
+En macOS, si el entorno todavía no está activo, se activa con `source .venv/bin/activate`. En una copia nueva del repositorio primero se crea con `python3 -m venv .venv`. En Windows se crea con `python -m venv .venv` y se activa en PowerShell con `.venv\Scripts\Activate.ps1`.
+
+### Persistencia y datos de ejemplo
+
+En [`data/temperaturas_emiliano.csv`](../data/temperaturas_emiliano.csv) dejé una consulta de ejemplo con **48 registros**, del **10/11/2026 a las 15:00** al **12/11/2026 a las 14:00**, con la hora local de León. El archivo se puede abrir sin conexión. Al volver a consultar la API, el periodo puede cambiar; el CSV se actualiza únicamente cuando se guarda una nueva consulta.
+
+### Capturas de la aplicación en ejecución
+
+**Acceso desde el menú principal:**
+
+![Menú principal con la opción de API de Emiliano](capturas/07_menu_emiliano.jpg)
+
+**Consulta de 48 registros y gráfica de línea:**
+
+![Consulta real y primeras gráficas en Tkinter](capturas/07_api_emiliano_superior.jpg)
+
+**Gráficas de barras y dispersión al desplazar la ventana:**
+
+![Barras y dispersión dentro de la ventana de Tkinter](capturas/07_api_emiliano_inferior.jpg)
+
+**Confirmación del guardado en CSV:**
+
+![Datos guardados desde la aplicación](capturas/07_csv_emiliano.jpg)
+
+### Comprobación
+
+Se comprobó la consulta real de 48 registros, el renderizado de las tres gráficas, el acceso desde el menú, el desplazamiento con teclado, el regreso al menú y el guardado desde el cuadro de diálogo. También se probaron respuestas vacías o inválidas, errores HTTP y tiempo de espera. La comprobación de dependencias con `pip check` terminó sin conflictos.
+
+### Reflexión de la sesión 7
+
+Considero que esta actividad ayuda a entender cómo una aplicación puede obtener información de una fuente externa y mostrarla de una forma más clara, ya que los mismos datos se pueden comparar con distintas gráficas. También es útil guardarlos en un CSV, porque así podemos revisar una consulta después. En el caso de nuestro proyecto, este ejercicio sirve para practicar la conexión con una API antes de integrar información relacionada con Legally.
+
+### Referencias
+
+Matplotlib. (s. f.). *Embed in Tk*. https://matplotlib.org/stable/gallery/user_interfaces/embedding_in_tk_sgskip.html
+
+Open-Meteo. (s. f.). *Weather Forecast API*. https://open-meteo.com/en/docs
