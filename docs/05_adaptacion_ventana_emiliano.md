@@ -56,12 +56,23 @@ Los parámetros principales son `hourly=temperature_2m`, `past_hours=48`, `forec
 
 - Cambié los dibujos de ejemplo por una consulta HTTP con `requests` y lectura de la respuesta JSON.
 - Agregué validación de la respuesta HTTP, las fechas y las temperaturas. Si la consulta falla o tarda más de 15 segundos, aparece un aviso y se puede volver a intentar.
-- La consulta se realiza en un hilo separado, para que la ventana siga respondiendo mientras llegan los datos.
+- La consulta se realiza directamente al presionar el botón, con una función y un bloque `try` / `except`. Mientras responde la API, la ventana puede hacer una pausa; la petición tiene un tiempo de espera de 15 segundos.
 - Incrusté las tres gráficas con `FigureCanvasTkAgg`, siguiendo el método de integración de [Matplotlib (s. f.)](https://matplotlib.org/stable/gallery/user_interfaces/embedding_in_tk_sgskip.html): **línea**, para ver la evolución; **barras**, para comparar las horas; y **dispersión**, para mostrar cada dato por separado. Todas tienen título, fecha y hora, temperatura en °C y cuadrícula.
 - Coloqué las gráficas una debajo de otra y agregué una barra de desplazamiento para verlas completas. También se puede avanzar con Av Pág y regresar con Re Pág (en Mac, Fn + flecha abajo o arriba).
 - Agregué el periodo consultado y la cantidad de registros. Al recargar, las gráficas anteriores se reemplazan.
 - Agregué **Guardar CSV** y **Volver al menú**. El CSV incluye las columnas `fecha_hora` y `temperatura_c`, y el usuario puede elegir dónde guardarlo.
 - Actualicé el nombre del quinto botón del menú a **5) API y gráficas (Emiliano)** y agregué las dependencias en [`requirements.txt`](../requirements.txt).
+
+### Organización del código simplificado
+
+El archivo mantiene la estructura del programa base: importar las librerías, crear la subventana con `tk.Toplevel`, colocar los elementos y conectar cada botón con una función. Lo organicé en cuatro partes:
+
+1. `fetch_data`: pedir los datos a la API y leer las fechas y temperaturas.
+2. `guardar_csv`: abrir un archivo y escribir los datos con un ciclo `for`.
+3. `crear_graficas`: dibujar la línea, las barras y la dispersión.
+4. `open_win_canvas`: crear la ventana y sus botones **Cargar**, **Guardar CSV** y **Volver al menú**.
+
+También simplifiqué la recarga: se limpia la misma figura y se dibujan los datos nuevos. Conservé los colores y la distribución de la pantalla. La apariencia requiere varias líneas para los títulos, los ejes, los botones y el desplazamiento, pero ahora la consulta y el guardado utilizan funciones, listas y ciclos básicos.
 
 ### Cómo ejecutar y revisar mi ventana
 
@@ -85,7 +96,7 @@ En macOS, si el entorno todavía no está activo, se activa con `source .venv/bi
 
 ### Persistencia y datos de ejemplo
 
-En [`data/temperaturas_emiliano.csv`](../data/temperaturas_emiliano.csv) dejé una consulta de ejemplo con **48 registros**, del **10/11/2026 a las 15:00** al **12/11/2026 a las 14:00**, con la hora local de León. El archivo se puede abrir sin conexión. Al volver a consultar la API, el periodo puede cambiar; el CSV se actualiza únicamente cuando se guarda una nueva consulta.
+En [`data/temperaturas_emiliano.csv`](../data/temperaturas_emiliano.csv) dejé una consulta de ejemplo con **48 registros**, del **10/11/2026 a las 16:00** al **12/11/2026 a las 15:00**, con la hora local de León. El archivo se puede abrir sin conexión. Al volver a consultar la API, el periodo puede cambiar; el CSV se actualiza únicamente cuando se guarda una nueva consulta.
 
 ### Capturas de la aplicación en ejecución
 
