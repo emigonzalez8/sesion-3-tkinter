@@ -21,3 +21,7 @@ De las líneas 12 a la 15 voy a dejar el `Listbox` en la columna izquierda, pero
 Las funciones `agregar()`, `eliminar()` y `limpiar()` se quedan igual en su lógica, cambiando solo el mensaje de aviso de la línea 26 a "Escribe una consulta para agregar.". En los botones de la derecha cambiaré "Limpiar" por "Limpiar lista" y les daré a los tres el mismo ancho, bordes café y una separación uniforme: "Agregar" llevará fondo dorado para destacar, mientras que los otros dos irán en beige.
 
 Por último, antes de la línea 40 pondré una línea divisoria horizontal con suficiente espacio alrededor. En la línea 40 cambiaré el botón "Cerrar" por "Volver al menú", centrándolo abajo en lugar de alinearlo a la derecha con fondo dorado y la acción configurada para regresar al menú principal.
+
+## Reflexión
+
+Para mí, la lista de consultas apoyará a Legally porque permitirá organizar las dudas que el usuario quiere revisar. Las opciones para agregar, eliminar y limpiar ayudarán a mantener esa información ordenada. Además, usar nombres e íconos relacionados con el proyecto hará que las personas puedan entender mejor cómo utilizar esta pantalla.

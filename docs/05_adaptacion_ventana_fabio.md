@@ -30,3 +30,7 @@ Asimismo, quiero agregar un signo de interrogación, un libro, una carpeta y uno
 También quiero colocar una flecha dorada entre cada recuadro, apuntando hacia abajo, para que se entienda el orden de los pasos. Los recuadros deben tener el mismo tamaño y quedar alineados.
 
 Finalmente, quiero agregar una línea divisoria debajo del área de dibujo y cambiar el botón “Cerrar” por “Volver al menú”. Al presionarlo, se cerraría esta subventana para regresar al menú principal.
+
+## Reflexión
+
+Yo creo que la ruta de orientación apoyará la idea de Legally porque mostrará los pasos de una forma que sea fácil de seguir. Los recuadros y las flechas ayudarán a entender el orden, mientras que los íconos permitirán identificar cada etapa. Esto ayudará a que el usuario sepa cómo continuar dentro de la aplicación.

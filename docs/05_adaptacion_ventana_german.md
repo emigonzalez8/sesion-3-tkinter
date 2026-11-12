@@ -41,3 +41,7 @@ Finalmente, quiero agregar el botón “Volver al menú”, acompañado de una f
 Asimismo, necesito reorganizar la distribución de todos los elementos. Actualmente se utiliza `.pack()` para acomodarlos verticalmente, pero quiero utilizar principalmente `.grid()` para organizar las etiquetas, los campos de texto y los botones en filas y columnas, de manera que la distribución sea similar a la del boceto.
 
 Finalmente, quiero agregar una línea divisoria debajo de los botones principales, con suficiente espacio alrededor para separar visualmente el formulario de la opción “Volver al menú”.
+
+## Reflexión
+
+Pienso que adaptar el formulario ayudará a que las personas organicen su situación y expliquen qué necesitan consultar. Al separar el título, el tema y la descripción, la información quedará más clara. Esto va de la mano con Legally, porque buscamos que consultar información sobre sus derechos sea más sencillo desde el inicio.

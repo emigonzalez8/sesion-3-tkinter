@@ -29,3 +29,7 @@ Después de esas opciones quiero agregar el botón “¿Cómo funciona?”, con 
 Asimismo, necesito ajustar los estilos de los textos y botones para utilizar colores café, marfil y dorado. Quiero que las tres opciones tengan el mismo ancho, que los bordes sean de color café y que la separación entre los elementos sea uniforme.
 
 Finalmente, en la línea 23 quiero adaptar la línea divisoria y darle más espacio alrededor. En la línea 24 aparece “Salir”, pero yo quiero cambiarlo por “Volver al menú” y ajustar su acción para regresar al menú principal.
+
+## Reflexión
+
+Considero que estos cambios apoyan la idea de Legally, ya que una pantalla de inicio clara ayudará a que el usuario entienda para qué sirve la aplicación y encuentre las opciones con facilidad. También quiero que los colores y los íconos tengan relación con el proyecto, porque eso permitirá reconocer mejor cada función desde el primer momento.
