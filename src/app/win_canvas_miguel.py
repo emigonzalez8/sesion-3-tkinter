@@ -188,6 +188,8 @@ def open_win_canvas(parent: tk.Tk):
 
     ttk.Button(barra, text="Cargar gráficas", command=cargar).pack(side="left")
 
+    return win
+
 
 # Para pruebas independientes (opcional)
 if __name__ == "__main__":

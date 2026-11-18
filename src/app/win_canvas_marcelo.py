@@ -210,6 +210,8 @@ def open_win_canvas(parent: tk.Tk):
         ))
         redibujar()
 
+    return win
+
 
 # Para pruebas independientes (opcional)
 if __name__ == "__main__":

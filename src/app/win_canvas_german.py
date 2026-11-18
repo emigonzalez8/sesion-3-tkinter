@@ -165,6 +165,8 @@ def open_win_canvas(parent: tk.Tk):
     ttk.Button(top, text="Cargar datos", style="Accent.TButton",
                command=cargar).pack(side="right", padx=10)
 
+    return win
+
 
 if __name__ == "__main__":
     root = tk.Tk()
